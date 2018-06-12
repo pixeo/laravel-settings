@@ -1,0 +1,48 @@
+{
+    "name": "pixeo/laravel-settings",
+    "description": "Simple persisting settings package for a Laravel application",
+    "keywords": [
+        "pixeo",
+        "laravel-settings",
+        "settings"
+    ],
+    "homepage": "https://github.com/pixeo/laravel-settings",
+    "license": "MIT",
+    "require": {
+        "php": "^7.1",
+        "illuminate/database": "~5.5.0|~5.6.0",
+        "illuminate/support": "~5.5.0|~5.6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.3.0|~3.4.2|^3.5.0",
+        "phpunit/phpunit": "^5.7|6.2|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pixeo\\Settings\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pixeo\\Settings\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pixeo\\Settings\\SettingServiceProvider"
+            ]
+        }
+    }
+}
