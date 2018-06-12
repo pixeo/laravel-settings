@@ -11,7 +11,7 @@ class SettingServiceProviderTest extends TestCase
     {
         Setting::create(['key' => 'foo', 'value' => 'bar']);
 
-        $this->assertEquals($this->app['settings'], collect(['foo' => 'bar']));
+        $this->assertEquals($this->app['settings'], ['foo' => 'bar']);
         $this->assertEquals(setting('foo'), 'bar');
     }
 }

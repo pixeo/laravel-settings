@@ -27,8 +27,15 @@ class SettingServiceProvider extends \Illuminate\Support\ServiceProvider
 
         $this->app->singleton('settings', function ($app) {
             return $app['cache']->rememberForever('site.settings', function () {
+                $result = [];
                 $class = $this->app['config']->get('settings.model');
-                return $class::all()->pluck('value', 'key');
+
+                $class::all()->pluck('value', 'key')->each(function ($value, $key) use (&$result) {
+                    data_set($result, $key, $value);
+                });
+
+                return $result;
+
             });
         });
     }
