@@ -4,7 +4,7 @@
 [![Build Status](https://img.shields.io/travis/pixeo/laravel-settings/master.svg?style=flat-square)](https://travis-ci.org/pixeo/laravel-settings)
 [![Total Downloads](https://img.shields.io/packagist/dt/pixeo/laravel-settings.svg?style=flat-square)](https://packagist.org/packages/pixeo/laravel-settings)
 
-Persist you settings in the database
+Persist your settings in the database
 
 ## Installation
 
@@ -12,6 +12,32 @@ You can install the package via composer:
 
 ```bash
 composer require pixeo/laravel-settings
+```
+
+The package will automatically register itself.
+
+You can publish the config-file with:
+
+php artisan vendor:publish --provider="Pixeo\Settings\SettingServiceProvider" --tag="config"
+
+This is the contents of the published config file:
+
+```php
+
+<?php
+
+return [
+    /*
+     * The model that is used to fetch the settings
+     */
+    'model' => Pixeo\Settings\Setting::class,
+
+    /**
+     * The cache key the package will use
+     */
+    'cache_key' => 'pixeo.settings',
+];
+
 ```
 
 ## Usage
