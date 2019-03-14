@@ -7,7 +7,7 @@ use Pixeo\Settings\SettingServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->getEnvironmentSetUp($this->app);
